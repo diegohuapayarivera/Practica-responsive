@@ -1,43 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/Estilo.css">
-    <title>El diego gaaaaaaaaaaaaaaaaaaaaaaaaaaaa</title>
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Hábitos">
+    <link rel="stylesheet" href="css/Estilo.css">
+    <title>Hábitos - Control diario</title>
 </head>
 
 <body>
-    <section class="home">
-        <div class="in-flex">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni reiciendis consectetur tempore voluptatibus,
-            consequatur eveniet a recusandae fugiat non, culpa hic fuga iusto, eligendi mollitia impedit cum corrupti
-            accusamus sunt.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, laudantium vel. Itaque, pariatur porro laborum
-            adipisci vero ea, saepe veritatis eum amet voluptatibus iure inventore repellendus enim assumenda quos
-            deserunt?
-        </div>
-        <div class="in-flex">
+    <main class="app-shell" aria-label="Aplicación de control de hábitos">
+        <section class="hero-card">
             <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum optio dicta veritatis earum ducimus!
-                Adipisci corrupti atque assumenda fuga. Voluptas maiores iusto facere, fugiat vero nihil vel! Quisquam,
-                eveniet laudantium.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos mollitia voluptatum deleniti
-                eligendi, rem fugit quia molestias quas quam a harum optio exercitationem! Saepe dicta ullam doloremque
-                possimus pariatur unde!
+                <p class="eyebrow">Mi rutina</p>
+                <h1>Controla tus hábitos desde el iPhone</h1>
+                <p class="hero-copy">Marca tus avances diarios, mira tu racha y agrega nuevos hábitos sin instalar nada.</p>
             </div>
+            <div class="hero-progress" aria-label="Progreso de hábitos completados hoy">
+                <span id="progressPercent">0%</span>
+                <small>completado hoy</small>
+            </div>
+        </section>
+
+        <section class="stats-grid" aria-label="Resumen de progreso">
+            <article class="stat-card">
+                <span id="totalHabits">0</span>
+                <p>Hábitos</p>
+            </article>
+            <article class="stat-card">
+                <span id="completedHabits">0</span>
+                <p>Hechos hoy</p>
+            </article>
+            <article class="stat-card">
+                <span id="bestStreak">0</span>
+                <p>Mejor racha</p>
+            </article>
+        </section>
+
+        <section class="add-card" aria-labelledby="addHabitTitle">
             <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias dolor maiores perspiciatis modi
-                laboriosam quis accusamus cum excepturi exercitationem, magnam officiis veritatis maxime amet rem
-                cupiditate pariatur quam reprehenderit!
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat doloribus veniam iusto reprehenderit
-                tenetur sed, aspernatur voluptatem maxime, illum quibusdam maiores deserunt repudiandae eius eos
-                consequuntur ut. Corrupti, repellat perferendis.
+                <p class="eyebrow">Nuevo hábito</p>
+                <h2 id="addHabitTitle">¿Qué quieres mejorar?</h2>
             </div>
-        </div>
-    </section>
+            <form id="habitForm" class="habit-form">
+                <label class="sr-only" for="habitName">Nombre del hábito</label>
+                <input id="habitName" name="habitName" type="text" maxlength="40" placeholder="Ej. Tomar agua" autocomplete="off" required>
+                <button type="submit">Agregar</button>
+            </form>
+        </section>
+
+        <section class="habit-panel" aria-labelledby="todayTitle">
+            <div class="section-header">
+                <div>
+                    <p class="eyebrow" id="todayDate">Hoy</p>
+                    <h2 id="todayTitle">Hábitos de hoy</h2>
+                </div>
+                <button class="ghost-button" id="resetDay" type="button">Reiniciar día</button>
+            </div>
+            <div id="habitList" class="habit-list"></div>
+            <p class="empty-state" id="emptyState">Agrega tu primer hábito para empezar tu rutina.</p>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
 </body>
 
 </html>
